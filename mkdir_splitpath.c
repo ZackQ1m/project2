@@ -33,6 +33,12 @@ char baseName[64]; // The new directory name
         temp = temp->siblingPtr;
     }
 
+
+	if (pathName == NULL || strcmp(pathName, "") == 0 || strcmp(pathName, "/") == 0) {
+            printf("MKDIR ERROR: no path provided\n");
+            return;
+}
+
     // Create the new directory node
     struct NODE* newDir = (struct NODE*)malloc(sizeof(struct NODE));
     strcpy(newDir->name, baseName);
@@ -52,7 +58,7 @@ char baseName[64]; // The new directory name
         }
         temp->siblingPtr = newDir; // Add as the last sibling
     }
-    printf("MKDIR SUCCESS: node %s successfully created\n", baseName);
+    printf("MKDIR SUCCESS: node %s/%s successfully created\n", dirName, baseName);
 }
 
 //handles tokenizing and absolute/relative pathing options
