@@ -58,7 +58,11 @@ char baseName[64]; // The new directory name
         }
         temp->siblingPtr = newDir; // Add as the last sibling
     }
+    if (strcmp(dirName, "/") == 0 || strcmp(dirName, "") == 0) {
+    printf("MKDIR SUCCESS: node %s successfully created\n", baseName);
+} else {
     printf("MKDIR SUCCESS: node %s/%s successfully created\n", dirName, baseName);
+}
 }
 
 //handles tokenizing and absolute/relative pathing options
