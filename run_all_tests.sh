@@ -2,7 +2,7 @@
 
 all_passed=true
 
-for i in {01..05}; do
+for i in {01..06}; do
     ./main < test_cases/test$i.in > myoutput$i.txt 2>/dev/null
     echo "Comparing test$i..."
     if diff myoutput$i.txt test_cases/test$i.out; then
